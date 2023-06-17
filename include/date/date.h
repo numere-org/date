@@ -4748,7 +4748,7 @@ struct make_string<char, Traits>
     }
 };
 
-template <>
+/*template <>
 struct make_string<wchar_t>
 {
     template <class Rep>
@@ -4758,7 +4758,7 @@ struct make_string<wchar_t>
     {
         return std::to_wstring(n);
     }
-};
+};*/
 
 template <class Traits>
 struct make_string<wchar_t, Traits>
@@ -4768,7 +4768,7 @@ struct make_string<wchar_t, Traits>
     std::basic_string<wchar_t, Traits>
     from(Rep n)
     {
-        auto s = std::to_wstring(n);
+        auto s = std::to_string(n);
         return std::basic_string<wchar_t, Traits>(s.begin(), s.end());
     }
 };
